@@ -1,6 +1,10 @@
 import mongoose from 'mongoose'
 
 const productSchema = new mongoose.Schema({
+    name:{
+        type: String,
+        required: true,
+    },
     price:{
         type: String,
         required: true,
@@ -12,6 +16,10 @@ const productSchema = new mongoose.Schema({
     category:{
         type: mongoose.Schema.Types.ObjectId,
         ref:"Category",
+    },
+    userId :{       // owner of the product
+        type:String,
+        required: true,
     },
     productImage:{
         type: String,   // cloudinary url
