@@ -12,7 +12,7 @@ import {ApiResponse} from '../utils/ApiResponse.js'
 import {uploadOnCloudinary} from '../utils/Cloudinary.js'
 
 const addProduct =asyncHandler(async(req,res)=>{
-    const {name,description,price,quantity,category}=req.body
+    const {name,description,price,quantity}=req.body
     const userId = req.user._id           //ye req.user auth middleware me hai
 
     if (!req.file) {                                  // ye req.file jo hai vo route me hi set ki hai
@@ -34,13 +34,17 @@ const addProduct =asyncHandler(async(req,res)=>{
         description,
         price,
         quantity,
-        category,
+        // category,
         productImage,
         userId: userId,    // userId(product ka owner(seller)) : userId (upar wali)
     })
 
     const seller = await Seller.findById(userId);
+    if(!seller){
+        throw new ApiError(400,"seller not found")
+    }
     const savedProduct = await product.save();
+    seller.products.push(savedProduct)      // products array me push kardo
     await seller.save();
 
     return res.status(200).json(

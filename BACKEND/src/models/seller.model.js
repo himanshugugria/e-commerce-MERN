@@ -21,7 +21,10 @@ const sellerSchema = new mongoose.Schema({
     },
     refreshToken:{
         type: String,
-    }
+    },
+    products:[{                // ek particular seller k particular products (easier to find in database)
+        type: String,
+    }]
 },{timestamps:true})
 
 sellerSchema.pre("save",async function(next){     

@@ -13,10 +13,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    category:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:"Category",
-    },
+    // category:{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref:"Category",
+    // },
     userId :{       // owner of the product
         type:String,
         required: true,
