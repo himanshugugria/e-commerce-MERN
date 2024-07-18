@@ -17,6 +17,10 @@ const productSchema = new mongoose.Schema({
     //     type: mongoose.Schema.Types.ObjectId,
     //     ref:"Category",
     // },
+    quantity:{
+        type:Number,
+        required:true,
+    },
     userId :{       // owner of the product
         type:String,
         required: true,
