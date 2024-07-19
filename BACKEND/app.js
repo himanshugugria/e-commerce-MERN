@@ -1,8 +1,19 @@
 import  express  from "express";
 const app= express();
 
-import cors from 'cors'
+// import cors from 'cors'
 import cookieParser from 'cookie-parser'
+
+// const corsOptions = {
+//     origin: 'http://localhost:5173', // Ensure there is no trailing slash
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true,
+//     allowedHeaders: 'Authorization, X-Requested-With, Content-Type, Accept'
+// };
+
+// app.use(cors(corsOptions));
+
+// app.options('*', cors(corsOptions));
 
 app.use(cookieParser())
 app.use(express.json())
