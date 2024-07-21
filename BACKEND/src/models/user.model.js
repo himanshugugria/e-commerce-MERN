@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
     },
     refreshToken:{
         type: String,
+    },
+    cart:{            // har user ka ek cart hoga
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Cart"
     }
 },{timestamps:true})
 

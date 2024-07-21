@@ -27,7 +27,7 @@ const addProduct =asyncHandler(async(req,res)=>{
         throw new ApiError(500, "Failed to upload image to Cloudinary");
     }
 
-    const file = cloudinaryResponse.secure_url;
+    const productImage = cloudinaryResponse.secure_url;
 
     const product = await Product.create({
         name,
@@ -68,7 +68,7 @@ const updateProduct = asyncHandler(async(req,res)=>{
     if(price) product.price = price
     if(description) product.description = description
     if(quantity) product.quantity = quantity
-    if(file) product.file = file
+    if(file) product.productImage = file
 
     await product.save();
     return res.status(200).json(new ApiResponse(200,product,"product updated successfully"))
