@@ -30,7 +30,7 @@ const cartSchema = new mongoose.Schema({
     },
     orderTotal:{       // req.body se lenge
         type: Number,
-        required: true,
+        // required: true,
     }
 },{timestamps: true})
 
